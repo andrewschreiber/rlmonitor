@@ -21,10 +21,10 @@ Visualize playing the model:
 # Next steps
 - [ ] Setup Repo
   - [x] DQN code
-  - [ ] DQN attached to tensorboard
+  - [x] DQN attached to tensorboard
   - [ ] Tensorboard plugin example
 - [ ] Understanding
-  - [ ] DQN
+  - [x] DQN
   - [ ] Tensorboard
   - [ ] Tensorboard plugins
   - [ ] Polymer.js
