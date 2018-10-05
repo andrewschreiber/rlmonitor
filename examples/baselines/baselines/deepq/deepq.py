@@ -47,7 +47,9 @@ class ActWrapper(object):
         return self._act(*args, **kwargs)
 
     def step(self, observation, **kwargs):
-        return self._act([observation], **kwargs), None, None, None
+    # Was getting error TypeError: act() got an unexpected keyword argument 'S'
+    # return self._act([observation], **kwargs), None, None, None
+        return self._act([observation], {}), None, None, None
 
     def save_act(self, path=None):
         """Save model to a pickle located at `path`"""
