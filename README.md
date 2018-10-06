@@ -20,18 +20,17 @@ See the model playing Carptole:
 
 
 ### Tensorboard
-To visualize training, use the following commands to setup Baselines to
+To visualize training, use the following command to setup Baselines to
 send tensorboard log files.
 
-    export OPENAI_LOG_FORMAT='stdout,log,csv,tensorboard'
-    export OPENAI_LOGDIR=log_data
+    export OPENAI_LOG_FORMAT='stdout,log,csv,tensorboard' OPENAI_LOGDIR=logs
 
 In a seperate terminal tab/window, reactive your python virtual
-environment and in the rlmonitor directory run:
+environment and in the rlmonitor root directory run:
 
-    tensorboard --logdir log_data/tb
+    tensorboard --logdir logs/tb
 
-Return to the original terminal tab and run your training:
+Return to the original terminal tab, at the root of rlmonitor, and run your training:
 
     python -m baselines.run --alg=deepq --env=CartPole-v0 --save_path=./cartpole_model.pkl --num_timesteps=1e5
 

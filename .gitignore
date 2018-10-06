@@ -107,4 +107,4 @@ venv.bak/
 *.pkl
 
 # Log directory
-log_data/
+logs/
