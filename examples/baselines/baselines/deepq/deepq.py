@@ -19,6 +19,9 @@ from baselines.deepq.utils import ObservationInput
 from baselines.common.tf_util import get_session
 from baselines.deepq.models import build_q_func
 
+from tensorboard.plugins.beholder import Beholder
+
+beholder = Beholder(os.getenv('OPENAI_LOGDIR'))
 
 class ActWrapper(object):
     def __init__(self, act, act_params):
@@ -259,6 +262,7 @@ def learn(env,
 
 
         for t in range(total_timesteps):
+
             if callback is not None:
                 if callback(locals(), globals()):
                     break
@@ -286,6 +290,11 @@ def learn(env,
             obs = new_obs
 
             episode_rewards[-1] += rew
+            frames = env.get_images()
+            beholder.update(
+                session=sess,
+                frame=frames[0]
+            )
             if done:
                 obs = env.reset()
                 episode_rewards.append(0.0)
